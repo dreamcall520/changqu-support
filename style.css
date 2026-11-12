@@ -1,0 +1,61 @@
+:root {
+  color-scheme: light dark;
+  --bg: #faf8f4;
+  --glow: #f6e9d9;
+  --surface: #fffdfa;
+  --text: #292720;
+  --muted: #57544b;
+  --line: #e8e1d7;
+  --link: #175284;
+  --soft: #eff5fb;
+  font: 16px/1.7 "Atkinson Hyperlegible Next", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1d1b19;
+    --glow: #312820;
+    --surface: #24211e;
+    --text: #f4f0e8;
+    --muted: #c6beb3;
+    --line: #443d35;
+    --link: #a8d3fc;
+    --soft: #27384a;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--text);
+  background: radial-gradient(ellipse at top left, var(--glow), transparent 32rem), var(--bg);
+}
+a { color: var(--link); text-underline-offset: .18em; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.site-header, main { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  flex-wrap: wrap;
+  min-height: 4.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.brand, nav a { color: var(--text); font-weight: 650; text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: .45rem; }
+nav { display: flex; gap: .15rem; }
+nav a { padding: .55rem .65rem; border-radius: .6rem; }
+nav a[aria-current="page"], nav a:hover { background: var(--surface); text-decoration: underline; }
+main { padding: clamp(2rem, 6vw, 4.5rem) 0 4rem; }
+.intro { margin: 0 .2rem 2rem; }
+.intro img { display: block; margin-left: -.5rem; }
+h1 { margin: .15rem 0 .4rem; font-size: clamp(2.25rem, 6vw, 3.5rem); letter-spacing: -.045em; line-height: 1.2; }
+.lead { max-width: 37rem; margin: 0; color: var(--muted); font-size: 1.1rem; }
+.content { background: var(--surface); border: 1px solid var(--line); border-radius: 1.2rem; padding: 0 clamp(1.1rem, 4vw, 2rem); }
+section { padding: 1.25rem 0; }
+section + section { border-top: 1px solid var(--line); }
+h2 { margin: 0 0 .35rem; font-size: 1.15rem; line-height: 1.45; }
+section p { margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+section p + a { display: inline-block; margin-top: .5rem; }
+.contact-link { padding: .35rem .7rem; border-radius: .55rem; background: var(--soft); font-weight: 650; }
